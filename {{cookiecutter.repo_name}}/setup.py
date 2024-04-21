@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 requirements = [
     # package requirements go here
@@ -11,8 +11,10 @@ setup(
     license="{{ cookiecutter.open_source_license }}",
     author="{{ cookiecutter.full_name.replace('\"', '\\\"') }}",
     author_email='{{ cookiecutter.email }}',
+    include_package_data=True,
     url='https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.repo_name }}',
-    packages=['{{ cookiecutter.package_name }}'],
+    package_dir={'':'src'}
+    packages=find_packages(where="src"),
     {% if cookiecutter.include_cli == "y" -%}
     entry_points={
         'console_scripts': [
