@@ -13,7 +13,7 @@ setup(
     author_email='{{ cookiecutter.email }}',
     include_package_data=True,
     url='https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.repo_name }}',
-    package_dir={'':'src'}
+    package_dir={'':'src'},
     packages=find_packages(where="src"),
     {% if cookiecutter.include_cli == "y" -%}
     entry_points={
